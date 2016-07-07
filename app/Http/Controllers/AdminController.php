@@ -19,9 +19,5 @@ class AdminController extends Controller
     public function getDasboard(){
         return view('admin.dashboard');
     }
-//    GET THE CATEGORIES
-    public function getCategories(){
-        $categories = Category::all();
-        return view('admin.categories')->with('categories',$categories);
-    }
+
 }

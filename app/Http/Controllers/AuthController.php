@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function getSignIn(){
-        return view('auth.signin');
+    public function getLogIn(){
+        return view('auth.login');
     }
-    public function postSignIn(Request $request){
+    public function postLogIn(Request $request){
         $this->validate($request,[
             'username'=>'required',
             'password'=>'required'
@@ -22,10 +22,10 @@ class AuthController extends Controller
         if(!Auth::attempt($request->only(['username','password']),$request->has('remember'))){
             return redirect()->back();
         }
-        return redirect()->route('admin.dashboard');
+        return redirect('dashboard');
     }
-    public function getSignOut(){
+    public function getLogOut(){
         Auth::logout();
-        return redirect()->route('home');
+        return redirect('/');
     }
 }

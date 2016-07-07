@@ -15,50 +15,49 @@
  * Home
  */
 
-Route::get('/',[
-    'uses'=>'HomeController@getHome',
-    'as'=>'home'
-]);
+Route::get('/','HomeController@getHome');
+
+Route::get('/home','HomeController@getHome');
 
 
 /*
  * Auth
  */
 
-Route::get('/signin',[
-    'uses'=>'AuthController@getSignIn',
-    'as'=>'auth.signin',
-    'middleware'=>['guest']
-]);
+Route::get('admin','AuthController@getLogIn');
 
-Route::post('/signin',[
-    'uses'=>'AuthController@postSignIn',
-    'middleware'=>['guest']
-]);
+Route::post('admin','AuthController@postLogIn');
 
-Route::get('/signout',[
-    'uses'=>'AuthController@getSignOut',
-    'as'=>'auth.signout',
-    'middleware'=>['auth']
-]);
+Route::get('logout','AuthController@getLogOut');
+
+
 
 /*
  * Admin
  */
 
-Route::get('/dashboard',[
-    'uses'=>'AdminController@getDasboard',
-    'as'=>'admin.dashboard'
-
-    
-]);
-
-Route::get('/dashboard/categories',[
-    'uses'=>'AdminController@getCategories',
-    'as'=>'admin.categories'
-]);
+Route::get('dashboard','AdminController@getDasboard');
 
 
+/*
+ * Categories
+ */
+
+Route::get('categories','CategoryController@viewCategoriesList');
+Route::get('category/create','CategoryController@viewCreateCategory');
+Route::post('category/store','CategoryController@categoryStore');
+Route::get('category/delete/{id}','CategoryController@categoryDelete');
+Route::get('category/edit/{id}','CategoryController@viewEditCategory');
+Route::post('category/update/{id}','CategoryController@categoryUpdate');
 
 
+/*
+ * Articles
+ */
 
+Route::get('articles','ArticleController@viewArticlesList');
+Route::get('article/create','ArticleController@viewCreateArticle');
+Route::post('article/store','ArticleController@articleStore');
+Route::get('article/delete/{id}','ArticleController@articleDelete');
+Route::get('article/edit/{id}','ArticleController@viewEditArticle');
+Route::post('article/update/{id}','ArticleController@articleUpdate');

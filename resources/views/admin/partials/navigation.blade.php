@@ -6,7 +6,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{route('home')}}">University System</a>
+        <a class="navbar-brand" href="{{url('home')}}">FMI University System - Dashboard</a>
     </div>
     <ul class="nav navbar-top-links navbar-right">
         <li class="dropdown">
@@ -19,7 +19,7 @@
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="{{route('auth.signout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                <li><a href="{{url('logout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </li>
             </ul>
         </li>
@@ -28,21 +28,12 @@
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
-                <li class="sidebar-search">
-                    <div class="input-group custom-search-form">
-                        <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                    </div>
+                
+                <li>
+                    <a href="{{url('dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="{{route('admin.dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                </li>
-                <li>
-                    <a href="{{route('admin.categories')}}"><i class="fa fa-wpforms" aria-hidden="true"></i></i>Categories</a>
+                    <a href="{{url('categories')}}"><i class="fa fa-wpforms" aria-hidden="true"></i></i>Categories</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>

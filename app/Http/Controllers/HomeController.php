@@ -8,7 +8,8 @@ use App\Http\Requests;
 
 class HomeController extends Controller
 {
-    public function getHome(){
+    public function getHome()
+    {
         return view('home');
     }
     

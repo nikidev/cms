@@ -1,0 +1,9 @@
+.login-form{
+	margin: 0 auto;
+    padding: 10%;
+
+}
+
+.login-shadow{
+	    box-shadow: 1px 1px 1px #888888;
+}
