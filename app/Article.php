@@ -6,8 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    public function categories(){
-        return $this->hasOne('App/Category');
+
+	protected $fillable = ['category_id','title','body','user_id'];
+
+
+    public function categories()
+    {
+        return $this->belongsTo('App\Category');
     }
+
+    public function user() 
+	{
+		return $this->belongsTo('App\User');
+	}
     
 }

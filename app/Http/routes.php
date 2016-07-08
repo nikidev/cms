@@ -48,7 +48,7 @@ Route::get('category/create','CategoryController@viewCreateCategory');
 Route::post('category/store','CategoryController@categoryStore');
 Route::get('category/delete/{id}','CategoryController@categoryDelete');
 Route::get('category/edit/{id}','CategoryController@viewEditCategory');
-Route::post('category/update/{id}','CategoryController@categoryUpdate');
+Route::put('category/update/{id}','CategoryController@categoryUpdate');
 
 
 /*
@@ -60,4 +60,4 @@ Route::get('article/create','ArticleController@viewCreateArticle');
 Route::post('article/store','ArticleController@articleStore');
 Route::get('article/delete/{id}','ArticleController@articleDelete');
 Route::get('article/edit/{id}','ArticleController@viewEditArticle');
-Route::post('article/update/{id}','ArticleController@articleUpdate');
+Route::put('article/update/{id}','ArticleController@articleUpdate');

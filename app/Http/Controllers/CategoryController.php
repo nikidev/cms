@@ -47,17 +47,33 @@ class CategoryController extends Controller
 
     public function categoryDelete($id)
     {
+        $category = Category::findOrfail($id);
 
+        $category->articles()->delete();
+        $category->delete();
+        return redirect()->back();
     }
 
     public function viewEditCategory($id)
     {
-        return view('admin.categories.edit');
+
+        $category = Category::find($id);
+
+        return view('admin.categories.edit')
+        ->with('category',$category);
     }
 
-    public function categoryUpdate()
+    public function categoryUpdate($id,Request $request)
     {
-
+        $this->validate($request,[
+                'name'  => 'required',
+                
+            ]);
+         $category = Category::where('id',$id)->update([
+                'name'=> Input::get('name'),
+            ]);
+        
+         return redirect('/categories');
     }
 
 
