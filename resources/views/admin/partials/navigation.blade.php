@@ -37,7 +37,7 @@
                     <a href="{{url('categories')}}"><i class="fa fa-wpforms" aria-hidden="true"></i></i> Categories</a>
                 </li>
                 <li>
-                    <a href=""><i class="fa fa-newspaper-o" aria-hidden="true"></i></i> Articles</a>
+                    <a href="{{ url('articles') }}"><i class="fa fa-newspaper-o" aria-hidden="true"></i></i> Articles</a>
                 </li>
                 <li>
                     <a href=""><i class="fa fa-user" aria-hidden="true"></i></i> Users</a>

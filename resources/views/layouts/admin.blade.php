@@ -1,6 +1,6 @@
 {{--DEFAULT ADMIN TEMPLATE--}}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>University System @yield('title')</title>
     @include('layouts.partials.style')

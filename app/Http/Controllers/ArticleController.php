@@ -8,7 +8,11 @@ use App\Http\Requests;
 
 use App\Article;
 
+use App\Category;
+
 use Illuminate\Support\Facades\Input;
+
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -21,12 +25,15 @@ class ArticleController extends Controller
     public function viewArticlesList()
     {
          $articles = Article::all();
-        return view('admin.articles.index')->with('articles',$articles);
+        return view('admin.articles.index')
+        ->with('articles',$articles)
+        ->with('categories', Category::all());
     }
 
     public function viewCreateArticle()
     {
     	return view('admin.articles.create')
+            ->with ('categories', Category::all());
     }
 
     public function articleStore(Request $request)
@@ -41,9 +48,9 @@ class ArticleController extends Controller
         $article = Article::create([
 
                 'user_id'=> Auth::user()->id,
-                'category_id'=>Input::get('category');
-                'title' => Input::get('title');
-                'body' => Input::get('body');
+                'category_id'=>Input::get('category'),
+                'title' => Input::get('title'),
+                'body' => Input::get('body'),
 
             ]);
 
@@ -75,9 +82,9 @@ class ArticleController extends Controller
             ]);
 
         $article = Article::where('id',$id)->update([
-                'category_id'=>Input::get('category');
-                'title' => Input::get('title');
-                'body' => Input::get('body');
+                'category_id'=>Input::get('category'),
+                'title' => Input::get('title'),
+                'body' => Input::get('body'),
             ]);
 
 

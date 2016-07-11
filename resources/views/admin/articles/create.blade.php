@@ -19,12 +19,12 @@
                 </div>
             </div>
 
-
+            
             <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
                 <label for="body" class="col-sm-3 control-label">Body</label>
 
                 <div class="col-sm-6">
-                    <textarea  name="body" id="body" class="form-control" value="{{ old('body') }}"></textarea>
+                    <textarea  name="body" id="body-article" class="form-control" value="{{ old('body') }}"></textarea>
                     @if ($errors->has('body'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('body') }}</strong>
