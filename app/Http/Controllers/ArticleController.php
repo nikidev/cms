@@ -69,7 +69,8 @@ class ArticleController extends Controller
     	$article = Article::find($id);
 
         return view('admin.articles.edit')
-        ->with('article',$article);
+        ->with('article',$article)
+        ->with('categories', Category::all());
     }
 
     public function articleUpdate($id,Request $request)

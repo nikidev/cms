@@ -40,7 +40,7 @@
                     <a href="{{ url('articles') }}"><i class="fa fa-newspaper-o" aria-hidden="true"></i></i> Articles</a>
                 </li>
                 <li>
-                    <a href=""><i class="fa fa-user" aria-hidden="true"></i></i> Users</a>
+                    <a href="{{ url('users') }}"><i class="fa fa-user" aria-hidden="true"></i></i> Users</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>

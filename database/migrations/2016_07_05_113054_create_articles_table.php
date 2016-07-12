@@ -16,7 +16,7 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->integer('category_id');
             $table->string('title');
-            $table->string('body');
+            $table->text('body');
             $table->integer('user_id');
 //          parent id is for another category
             $table->integer('parent_id');

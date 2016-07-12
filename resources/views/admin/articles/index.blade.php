@@ -19,21 +19,21 @@
                     <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Content</th>
-                            <th>In Category: </th>
+                            <th>In category: </th>
                             <th>Created by:</th>
                             <th></th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-
+                  
                     @foreach($articles as $article)
                     <tr>
                         <td>{{ $article->title}}</td>
-                        <td>{{ $article->body }}</td>
-                        <td>{{ $article->categories->name }}</td>
-                        <td>{{ $article->user_id }}</td> 
+                        <td>
+                          {{ $article->category->name }}
+                        </td>
+                        <td>{{ $article->user->username }}</td> 
                         <td>
                             <a href="{{ url('article/edit/'. $article->id) }}" class="btn btn-warning"><span class="fa fa-edit"></span>Edit
                             </a>

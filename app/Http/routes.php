@@ -61,3 +61,14 @@ Route::post('article/store','ArticleController@articleStore');
 Route::get('article/delete/{id}','ArticleController@articleDelete');
 Route::get('article/edit/{id}','ArticleController@viewEditArticle');
 Route::put('article/update/{id}','ArticleController@articleUpdate');
+
+/*
+ * Users
+ */
+
+Route::get('users', 'UserController@viewUsersList');
+Route::get('user/delete/{id}','UserController@deleteUser');
+Route::get('user/edit/{id}','UserController@viewEditUser');
+Route::put('user/update/{id}','UserController@userUpdate');
+Route::get('user/create','UserController@viewCreateUser');
+Route::post('user/store','UserController@userStore');
