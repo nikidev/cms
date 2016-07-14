@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Article;
+
 class AdminController extends Controller
 {
 
@@ -16,8 +18,14 @@ class AdminController extends Controller
 	}
 	
 //    THE DASHBOARD
-    public function getDasboard(){
-        return view('admin.dashboard');
+    public function getDasboard()
+    {
+    	$categories = Category::all();
+    	$articles = Article::all();
+
+        return view('admin.dashboard')
+        	->with('categories',$categories)
+        	->with('articles',$articles);
     }
 
 }

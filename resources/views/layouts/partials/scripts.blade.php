@@ -11,3 +11,9 @@
 <script src="{{asset('src/js/mySummernote.js')}}" ></script>
 
 <script type="text/javascript" src="{{ asset('src/js/deleteModal.js') }}"></script>
+
+<script type="text/javascript" src="{{ asset('src/js/bootstrap-switch.js') }}"></script>
+
+<script type="text/javascript" src="{{ asset('src/js/switcher.js') }}"></script>
+
+<script type="text/javascript" src="{{ asset('src/js/popup.js') }}"></script>

@@ -14,13 +14,20 @@ class UserController extends Controller
 {
 	public  function __construct()
 	{
-		$this->middleware('auth');
+		$this->middleware('general_admin');
 	}
 
     public function viewUsersList()
     {
+        $user = User::take(1);
+        $selectedRole = [];
 
-    	return view('admin.users.index')
+        foreach ($user->get() as $key => $value) 
+        {
+            $selectedRole[] = $value->id;
+        }
+
+    	return view('admin.users.index',compact('selectedRole'))
     	->with('users', User::all());
     }
 

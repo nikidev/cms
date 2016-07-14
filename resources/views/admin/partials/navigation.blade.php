@@ -8,22 +8,21 @@
         </button>
         <a class="navbar-brand" href="{{url('home')}}">FMI University System - Dashboard</a>
     </div>
+    @if(!Auth::guest())
     <ul class="nav navbar-top-links navbar-right">
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+               Hi, {{ Auth::user()->username }} ! <span class="caret"></span>
             </a>
-            <ul class="dropdown-menu dropdown-user">
-                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                </li>
-                
-                <li class="divider"></li>
-                <li><a href="{{url('logout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                </li>
+
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="{{url('dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
+                <li><a href="{{ url('profile/edit/'.Auth::user()->id) }}"><i class="fa fa-user"></i>My Profile</a></li>
+                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
             </ul>
         </li>
     </ul>
-
+    @endif
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
@@ -39,10 +38,12 @@
                 <li>
                     <a href="{{ url('articles') }}"><i class="fa fa-newspaper-o" aria-hidden="true"></i></i> Articles</a>
                 </li>
+                @if(!Auth::guest() && Auth::user()->is_admin)
                 <li>
                     <a href="{{ url('users') }}"><i class="fa fa-user" aria-hidden="true"></i></i> Users</a>
                 </li>
-                <li>
+                @endif
+                {{-- <li>
                     <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
@@ -57,7 +58,7 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

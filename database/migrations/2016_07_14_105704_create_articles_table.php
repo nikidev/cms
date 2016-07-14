@@ -21,6 +21,7 @@ class CreateArticlesTable extends Migration
 //          parent id is for another category
             $table->integer('parent_id');
             $table->timestamps();
+
         });
     }
 

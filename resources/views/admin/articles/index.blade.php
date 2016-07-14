@@ -21,8 +21,7 @@
                             <th>Title</th>
                             <th>In category: </th>
                             <th>Created by:</th>
-                            <th></th>
-                            <th></th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,9 +36,8 @@
                         <td>
                             <a href="{{ url('article/edit/'. $article->id) }}" class="btn btn-warning"><span class="fa fa-edit"></span>Edit
                             </a>
-                        </td>
-                        <td>
-                          <a class="btn btn-danger delete-button" data-toggle="modal" data-target="#myModal" data-action="{{ url('article/delete/'. $article->id) }}"><span class="fa fa-trash-o"></span>Delete</a>
+
+                            <a class="btn btn-danger delete-button" data-toggle="modal" data-target="#myModal" data-action="{{ url('article/delete/'. $article->id) }}"><span class="fa fa-trash-o"></span>Delete</a>
                         </td>
                     </tr>
                     @endforeach

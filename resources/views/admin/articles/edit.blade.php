@@ -41,7 +41,7 @@
 
                 <div class="col-sm-2">
                     <select name="category" class="form-control">
-                        <option value=""></option>
+                        
                         @foreach($categories as $category)
                             @if($article->category_id == $category->id)
                               <option selected="true" value="{{ $article->category_id }}">{{ $category->name }}</option>

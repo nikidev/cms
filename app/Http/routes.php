@@ -72,3 +72,24 @@ Route::get('user/edit/{id}','UserController@viewEditUser');
 Route::put('user/update/{id}','UserController@userUpdate');
 Route::get('user/create','UserController@viewCreateUser');
 Route::post('user/store','UserController@userStore');
+
+/*
+ * User Profile
+ */
+
+Route::get('profile/edit/{id}','ProfileController@viewProfileEdit');
+Route::put('profile/update/{id}','ProfileController@profileUpdate');
+
+
+/*
+ * Check if user is authenticated and prevent to load login page again
+ */
+
+
+Route::get('/admin', function () {
+		if (Auth::check()) {
+			return redirect('/home');
+		} else {
+			return view('auth.login');
+		}
+	});

@@ -6,11 +6,16 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Category;
+
 class HomeController extends Controller
 {
     public function getHome()
     {
-        return view('home');
+    	$categories = Category::all();
+
+        return view('home')
+        	->with('categories',$categories);
     }
     
 }

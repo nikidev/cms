@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{{asset('src/css/app-style.css')}}">
 {{-- <link rel="stylesheet" href="{{asset('src/css/summernote.css')}}"> --}}
 <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
+<link href="{{ asset('src/css/bootstrap-switch.css') }}"rel="stylesheet" >
 
 {{-- <link rel="stylesheet" href="{{asset('src/fonts/summernote.ttf')}}">
 <link rel="stylesheet" href="{{asset('src/fonts/summernote.woff')}}"> --}}

@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class AdminMiddleware
+class GeneralAdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,13 +16,12 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::user()->isadmin) {
-            if ($request->ajax() || $request->wantsJson()) {
-                return redirect()->guest('signin');
-            } else {
-                return redirect()->guest('signin');
-            }
+        if (!Auth::guest() && Auth::user()->is_admin) 
+        {
+            return $next($request);
+            
         }
-        return $next($request);
+
+        return redirect('/');
     }
 }

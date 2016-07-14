@@ -39,7 +39,7 @@
 
                 <div class="col-sm-2">
                     <select name="category" class="form-control">
-                        <option value=""></option>
+                        
                         @foreach($categories as $category)
                               <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
