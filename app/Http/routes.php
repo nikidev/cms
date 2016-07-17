@@ -61,6 +61,7 @@ Route::post('article/store','ArticleController@articleStore');
 Route::get('article/delete/{id}','ArticleController@articleDelete');
 Route::get('article/edit/{id}','ArticleController@viewEditArticle');
 Route::put('article/update/{id}','ArticleController@articleUpdate');
+Route::get('article/{id}','ArticleController@articleShow');
 
 /*
  * Users

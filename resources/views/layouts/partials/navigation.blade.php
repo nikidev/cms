@@ -33,9 +33,12 @@
 
             
                 @foreach($categories as $category)
-                <li>
-                    <a href="{{ url($category->id) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{$category->name}}</a>
-                </li>
+                
+                    @foreach($category->articles  as $article)
+                    <li>
+                        <a href="{{ url('article/'. $article->id) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{$category->name}}</a>
+                        @endforeach
+                     </li>
                 @endforeach
 
                 

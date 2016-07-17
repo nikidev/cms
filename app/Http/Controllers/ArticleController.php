@@ -19,7 +19,7 @@ class ArticleController extends Controller
 
 	public function __construct()
 	{
-		$this->middleware('auth');
+		$this->middleware('auth', ['except' => ['articleShow']]);
 	}
 
     public function viewArticlesList()
@@ -90,5 +90,14 @@ class ArticleController extends Controller
 
 
     	return redirect('/articles');
+    }
+
+
+
+    public function articleShow($id)
+    {
+        $article = Article::find($id);
+        return view('home')
+        ->with('article',$article);
     }
 }

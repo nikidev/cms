@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 
 use App\Category;
+use App\Article;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
         
         view()->composer('*', function ($view) {
             $view->with('categories', Category::all());
+        });
+
+        view()->composer('*', function ($view) {
+            $view->with('articles', Article::all());
         });
     }
 
