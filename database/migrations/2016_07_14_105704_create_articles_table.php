@@ -14,12 +14,11 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('category_id');
+            $table->integer('category_id')->nullable();
             $table->string('title');
             $table->text('body');
+            $table->string('slug')->unique();
             $table->integer('user_id');
-//          parent id is for another category
-            $table->integer('parent_id');
             $table->timestamps();
 
         });

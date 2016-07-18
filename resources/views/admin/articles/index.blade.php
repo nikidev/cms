@@ -20,6 +20,7 @@
                         <tr>
                             <th>Title</th>
                             <th>In category: </th>
+                            <th>Slug</th>
                             <th>Created by:</th>
                             <th>Actions</th>
                         </tr>
@@ -30,8 +31,13 @@
                     <tr>
                         <td>{{ $article->title}}</td>
                         <td>
-                          {{ $article->category->name }}
+                          @if(isset($article->category->name))
+                            
+                              {{ $article->category->name }}
+                            
+                          @endif
                         </td>
+                        <td>{{ $article->slug }}</td>
                         <td>{{ $article->user->username }}</td> 
                         <td>
                             <a href="{{ url('article/edit/'. $article->id) }}" class="btn btn-warning"><span class="fa fa-edit"></span>Edit

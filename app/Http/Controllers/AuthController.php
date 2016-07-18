@@ -15,7 +15,7 @@ class AuthController extends Controller
     }
     public function postLogIn(Request $request){
         $this->validate($request,[
-            'username'=>'required',
+            'username'=>'required|exists:users',
             'password'=>'required'
         ]);
 

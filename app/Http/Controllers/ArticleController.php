@@ -39,20 +39,23 @@ class ArticleController extends Controller
     public function articleStore(Request $request)
     {
     	$this->validate($request,[
-                'title'  => 'required|Unique:articles',
+                'title'  => 'required|unique:articles',
                 'body'  => 'required',
+                'slug'  => 'required|alpha_dash|min:3|max:255|unique:articles,slug',
                 'category_id' => 'numeric',
                 
             ]);
 
-        $article = Article::create([
+            $article = Article::create([
 
-                'user_id'=> Auth::user()->id,
-                'category_id'=>Input::get('category'),
-                'title' => Input::get('title'),
-                'body' => Input::get('body'),
+                    'user_id'=> Auth::user()->id,
+                    'category_id'=>Input::get('category'),
+                    'title' => Input::get('title'),
+                    'body' => Input::get('body'),
+                    'slug'=> Input::get('slug'),
 
-            ]);
+                ]);
+        
 
         return redirect('/articles');
     }
@@ -75,17 +78,20 @@ class ArticleController extends Controller
 
     public function articleUpdate($id,Request $request)
     {
-        $this->validate($request,[
-                'title'  => 'required',
-                'body'  => 'required',
-                'category_id' => 'numeric',
-                
-            ]);
 
+        $this->validate($request,[
+            'title'  => 'required',
+            'body'  => 'required',
+            'slug'  => 'required|alpha_dash|min:3|max:255',
+            'category_id' => 'numeric',
+            
+        ]);
+        
         $article = Article::where('id',$id)->update([
                 'category_id'=>Input::get('category'),
                 'title' => Input::get('title'),
                 'body' => Input::get('body'),
+                'slug'=> Input::get('slug'),
             ]);
 
 
@@ -94,9 +100,9 @@ class ArticleController extends Controller
 
 
 
-    public function articleShow($id)
+    public function articleShow($slug)
     {
-        $article = Article::find($id);
+        $article = Article::whereSlug($slug)->first();
         return view('home')
         ->with('article',$article);
     }

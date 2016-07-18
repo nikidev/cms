@@ -6,7 +6,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{url('home')}}">FMI University System</a>
+        <a class="navbar-left" id="logo" href="{{url('home')}}"><img src="{{ asset('images/fmipu.jpg') }}"><a class="navbar-brand" href="{{url('home')}}">FMI University System</a></a>
     </div>
     @if(!Auth::guest())
         <ul class="nav navbar-top-links navbar-right">
@@ -33,12 +33,11 @@
 
             
                 @foreach($categories as $category)
-                
                     @foreach($category->articles  as $article)
-                    <li>
-                        <a href="{{ url('article/'. $article->id) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{$category->name}}</a>
-                        @endforeach
-                     </li>
+                        <li>
+                            <a href="{{ url('article/'. $article->slug) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{$category->name}}</a>
+                         </li>
+                      @endforeach
                 @endforeach
 
                 

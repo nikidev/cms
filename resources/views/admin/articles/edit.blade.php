@@ -36,6 +36,20 @@
             </div>
 
 
+             <div class="form-group{{ $errors->has('slug') ? ' has-error' : '' }}">
+                <label for="slug" class="col-sm-3 control-label">Slug</label>
+
+                <div class="col-sm-6">
+                    <input type="text" name="slug" id="slug" class="form-control" value="{{ $article->slug }}">
+                    @if ($errors->has('slug'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('slug') }}</strong>
+                            </span>
+                    @endif
+                </div>
+            </div>
+
+
              <div class="form-group">
                 <label for="category" class="col-sm-3 control-label">Add in category: </label>
 

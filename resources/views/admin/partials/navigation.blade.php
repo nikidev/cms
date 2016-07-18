@@ -6,7 +6,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{url('home')}}">FMI University System - Dashboard</a>
+        <a class="navbar-left" id="logo" href="{{url('dashboard')}}"><img src="{{ asset('images/fmipu.jpg') }}"><a class="navbar-brand" href="{{url('dashboard')}}">FMI University System - Dashboard</a></a>
     </div>
     @if(!Auth::guest())
     <ul class="nav navbar-top-links navbar-right">
@@ -30,7 +30,7 @@
                     <a href="{{url('home')}}"><i class="fa fa-home"></i> Home</a>
                 </li>
                 <li>
-                    <a href="{{url('dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    <a href="{{url('dashboard')}}"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
                 </li>
                 <li>
                     <a href="{{url('categories')}}"><i class="fa fa-wpforms" aria-hidden="true"></i></i> Categories</a>
