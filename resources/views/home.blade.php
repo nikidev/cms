@@ -2,8 +2,10 @@
 
 @section('content')
 		@if(isset($article))
-			<h1>{{ $article->title }}</h1>
-			<p>{!! $article->body !!}</p>
+
+
+			<a href="{{ url('article/'. $article->slug) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{$article->title}}</a>
+
 		@else
 			<h1>Welcome to the homepage of Plovdiv university!</h1>
 		@endif
