@@ -24,7 +24,7 @@
                 <label for="body" class="col-sm-3 control-label">Body</label>
 
                 <div class="col-sm-6">
-                    <textarea  name="body" id="body-article" class="form-control" value="{{ old('body') }}"></textarea>
+                    <textarea  name="body" id="body-article" class="form-control">{{ old('body') }}</textarea>
                     @if ($errors->has('body'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('body') }}</strong>
