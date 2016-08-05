@@ -36,13 +36,18 @@
                     <li>
                         <a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{$category->name}}<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            @foreach($category->articles  as $article)
+                            {{-- @foreach($category->articles  as $article)
                                     <li>
                                         <a href="{{ url('article/'. $article->slug) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{$article->title}}</a>
                                     </li>
-                              @endforeach
+                              @endforeach --}}
+                              <li>
+                                <a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{$category->parent_id}}<span class="fa arrow"></span></a>
+                              </li>
                         </ul>
                     </li>
+
+                    
                 @endforeach
         </div>
     </div>

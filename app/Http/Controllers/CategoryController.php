@@ -24,8 +24,9 @@ class CategoryController extends Controller
     }
 
     public function viewCreateCategory()
-    {
-        return view('admin.categories.create');
+    {   
+        $categories = Category::all();
+        return view('admin.categories.create')->with('categories',$categories);
     }
 
 
@@ -39,6 +40,7 @@ class CategoryController extends Controller
         $category = Category::create([
  
             'name'=> Input::get('name'),
+            'parent_id'=> Input::get('parent'),
         ]);
 
 
@@ -60,7 +62,8 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
         return view('admin.categories.edit')
-        ->with('category',$category);
+        ->with('category',$category)
+        ->with('categories', Category::all());
     }
 
     public function categoryUpdate($id,Request $request)
@@ -71,6 +74,7 @@ class CategoryController extends Controller
             ]);
          $category = Category::where('id',$id)->update([
                 'name'=> Input::get('name'),
+                'parent_id'=> Input::get('parent'),
             ]);
         
          return redirect('/categories');

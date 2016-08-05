@@ -23,6 +23,25 @@
             </div>
 
 
+
+            <div class="form-group">
+                <label for="category" class="col-sm-3 control-label"> category: </label>
+
+                <div class="col-sm-2">
+                    <select name="category" class="form-control">
+                        
+                        @foreach($categories as $category)
+                            @if($article->category_id == $category->id)
+                              <option selected="true" value="{{ $article->category_id }}">{{ $category->name }}</option>
+                            @else
+                             <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+
            
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-4">

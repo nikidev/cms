@@ -19,6 +19,20 @@
                 </div>
             </div>
 
+
+            <div class="form-group">
+                <label for="category" class="col-sm-3 control-label">Parent category: </label>
+
+                <div class="col-sm-2">
+                    <select name="parent" class="form-control">
+                        
+                        @foreach($categories as $category)
+                              <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
                           
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-4">
