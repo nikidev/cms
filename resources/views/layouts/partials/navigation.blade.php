@@ -25,6 +25,7 @@
     @endif
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
+        @if (count($categories) > 0)
             <ul class="nav" id="side-menu">
           
                 <li>
@@ -32,23 +33,33 @@
                 </li>
 
             
-                @foreach($categories as $category)
+                {{-- @foreach($categories as $category)
                     <li>
                         <a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{$category->name}}<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            {{-- @foreach($category->articles  as $article)
+                            @foreach($category->articles  as $article)
                                     <li>
                                         <a href="{{ url('article/'. $article->slug) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{$article->title}}</a>
                                     </li>
-                              @endforeach --}}
+                              @endforeach
                               <li>
                                 <a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{$category->parent_id}}<span class="fa arrow"></span></a>
                               </li>
                         </ul>
                     </li>
+                @endforeach --}}
 
+
+                {{-- @each('layouts.partials.nestedNavigation', $categories, 'category') --}}
+               
+                        
+                    @foreach ($categories as $category)
+                        @include('layouts.partials.nestedNavigation', $category)
+                    @endforeach
+                        
                     
-                @endforeach
+            </ul>
+                @endif
         </div>
     </div>
 </nav>

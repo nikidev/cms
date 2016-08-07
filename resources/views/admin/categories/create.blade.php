@@ -25,7 +25,7 @@
 
                 <div class="col-sm-2">
                     <select name="parent" class="form-control">
-                        
+                        <option value="0">-- no parent</option>
                         @foreach($categories as $category)
                               <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
