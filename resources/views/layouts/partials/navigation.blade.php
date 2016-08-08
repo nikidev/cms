@@ -25,7 +25,7 @@
     @endif
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
-        @if (count($categories) > 0)
+        @if (count($categoriesnav) > 0)
             <ul class="nav" id="side-menu">
           
                 <li>
@@ -51,9 +51,9 @@
 
 
                 {{-- @each('layouts.partials.nestedNavigation', $categories, 'category') --}}
-               
+              
                         
-                    @foreach ($categories as $category)
+                    @foreach ($categoriesnav as $category)
                         @include('layouts.partials.nestedNavigation', $category)
                     @endforeach
                         
