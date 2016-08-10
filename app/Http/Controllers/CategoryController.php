@@ -59,11 +59,11 @@ class CategoryController extends Controller
     public function viewEditCategory($id)
     {
 
-        $mcategory = Category::find($id);
+        $mainCategory = Category::find($id);
         
         return view('admin.categories.edit')
-        ->with('mcategory',$mcategory)
-        ->with('categories', Category::where('id','!=', $mcategory->id)->get());
+        ->with('mainCategory',$mainCategory)
+        ->with('parentCategories', Category::where('id','!=', $mainCategory->id)->get());
         
     }
 
