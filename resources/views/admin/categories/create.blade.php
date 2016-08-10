@@ -23,7 +23,7 @@
             <div class="form-group">
                 <label for="category" class="col-sm-3 control-label">Parent category: </label>
 
-                <div class="col-sm-2">
+                <div class="col-sm-6">
                     <select name="parent" class="form-control">
                         <option value="0">-- no parent</option>
                         @foreach($categories as $category)

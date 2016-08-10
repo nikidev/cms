@@ -2,7 +2,7 @@
 
 @section('content')
 
- <form action="{{ url('category/update/'. $category->id) }}" method="POST" class="form-horizontal">
+ <form action="{{ url('category/update/'. $mcategory->id) }}" method="POST" class="form-horizontal">
 
             {{ method_field('PUT') }}
             {!! csrf_field() !!}
@@ -11,7 +11,7 @@
                 <label for="name" class="col-sm-3 control-label">Category name</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="name" value="<?php echo (isset($category->name) ? $category->name :  ''); ?>" id="name"  class="form-control">
+                    <input type="text" name="name" value="<?php echo (isset($mcategory->name) ? $mcategory->name :  ''); ?>" id="name"  class="form-control">
 
                     @if ($errors->has('name'))
                             <span class="help-block">
@@ -22,17 +22,24 @@
                 </div>
             </div>
 
-
+            
 
             <div class="form-group">
                 <label for="category" class="col-sm-3 control-label">Parent category: </label>
 
-                <div class="col-sm-2">
+                <div class="col-sm-6">
                     <select name="parent" class="form-control">
-                        <option selected="true" value="0">-- no parent</option>
-                        @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
+                        @if($mcategory->parent_id == 0)
+                                <option value="0">-- no parent</option>
+                        @else
+                            @foreach($categories as $category)
+                                @if($category->id == $mcategory->parent_id)
+                                    <option selected="true" value="{{ $category->parent_id }}">{{ $category->name }}</option>
+                                @else
+                                    <option  value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endif
+                            @endforeach
+                        @endif
                     </select>
                 </div>
             </div>
