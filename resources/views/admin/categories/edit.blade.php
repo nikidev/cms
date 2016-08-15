@@ -44,6 +44,31 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                <label for="category" class="col-sm-3 control-label">Order: </label>
+
+                <div class="col-sm-6">
+                    <select  name="order" id="orderSelect" size="9" class="form-control">
+                        @foreach($allCategories as $categoriesList)
+                            @if($categoriesList->id == $mainCategory->id)
+                                <option selected="true" value="{{ $categoriesList->id }}">{{ $categoriesList->name  }}</option>
+                            @else
+                                <option value="{{ $categoriesList->id }}">{{ $categoriesList->name  }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
+
+                <button type="button" class="btn btn-default up-button">
+                        <i class="fa fa-chevron-up"></i>
+                </button>
+
+                <button type="button" class="btn btn-default down-button">
+                        <i class="fa fa-chevron-down"></i>
+                </button>
+            </div>
+
+
 
            
             <div class="form-group">

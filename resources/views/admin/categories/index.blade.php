@@ -18,7 +18,8 @@
                 <table width="100%" class="table table-striped  table-responsive table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Categories</th>
+                            <th>Children categories</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -26,6 +27,11 @@
                     @foreach($categories as $category)
                     <tr>
                         <td>{{$category->name}}</td>
+                        <td>
+                          @foreach($category->children as $child)
+                            {{ $child->name }}
+                          @endforeach
+                        </td>
                         <td>
                             <a href="{{ url('category/edit/'. $category->id) }}" class="btn btn-warning"><span class="fa fa-edit"></span>Edit
                             </a>

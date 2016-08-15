@@ -40,4 +40,9 @@
     margin: 5px;
     width: 40px;
 }
-	
+
+
+.down-button{
+	display: block;
+	margin:7px;
+}

@@ -264,6 +264,7 @@ class ComposerStaticInite8245589a04ccf2b34f1d04828813c4e
     );
 
     public static $classMap = array (
+        'AddOrderFieldInCategories' => __DIR__ . '/../..' . '/database/migrations/2016_08_11_082909_AddOrderFieldInCategories.php',
         'CreateArticlesTable' => __DIR__ . '/../..' . '/database/migrations/2016_07_14_105704_create_articles_table.php',
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_07_14_105627_create_categories_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',

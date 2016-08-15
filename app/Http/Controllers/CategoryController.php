@@ -60,10 +60,12 @@ class CategoryController extends Controller
     {
 
         $mainCategory = Category::find($id);
+        $allCategories = Category::all();
         
         return view('admin.categories.edit')
         ->with('mainCategory',$mainCategory)
-        ->with('parentCategories', Category::where('id','!=', $mainCategory->id)->get());
+        ->with('parentCategories', Category::where('id','!=', $mainCategory->id)->get()) //select all categories without the category for edit
+        ->with('allCategories', $allCategories);
         
     }
 
@@ -76,6 +78,7 @@ class CategoryController extends Controller
          $category = Category::where('id',$id)->update([
                 'name'=> Input::get('name'),
                 'parent_id'=> Input::get('parent'),
+                'order'=>Input::get('order'),
             ]);
         
          return redirect('/categories');
