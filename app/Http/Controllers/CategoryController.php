@@ -10,6 +10,10 @@ use App\Category;
 
 use Illuminate\Support\Facades\Input;
 
+use DB;
+
+use Response;
+
 class CategoryController extends Controller
 {
 	public function __construct()
@@ -19,7 +23,10 @@ class CategoryController extends Controller
     
     public function viewCategoriesList()
     {
-        $categories = Category::all();
+        // $categories = Category::orderBy('order','ASC')->get();
+
+        $categories = DB::table('categories')->orderBy('ordercat','ASC')->get();
+
         return view('admin.categories.index')->with('categories',$categories);
     }
 
@@ -41,6 +48,7 @@ class CategoryController extends Controller
  
             'name'=> Input::get('name'),
             'parent_id'=> Input::get('parent'),
+            'order'=> Category::max('ordercat')+1,
         ]);
 
 
@@ -83,6 +91,46 @@ class CategoryController extends Controller
         
          return redirect('/categories');
     }
+
+
+
+
+        // public function sortCategories() 
+        // {
+
+              
+        //       $updateRecordsArray = Input::get('order');
+        //         $order = 1;
+         
+                
+        //         foreach ($updateRecordsArray as $recordID) 
+        //         {
+         
+        //             return Category::where('id', '=', $recordID)->update(array('order' => $order));
+        //             $order++;
+        //         }
+     
+        //         return Response::json('ok');  
+        // }
+
+
+
+        public function sortCategories() 
+        {
+            // $category = Category::orderBy('order','ASC')->get();
+
+            $category = DB::table('categories')->orderBy('ordercat','ASC')->get();
+
+            $itemID=Input::get('itemID');
+            $itemIndex=Input::get('itemIndex');
+
+            foreach ($category as $item) 
+            {
+                // return Category::where('id','=',$itemID)->update(array('order' => $itemIndex));
+                return DB::table('categories')->where('id', '=', $itemID)->update(array('ordercat'=> $itemIndex));
+            }
+              
+        }
 
 
 

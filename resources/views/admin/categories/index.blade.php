@@ -10,34 +10,34 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Categories
+            Categories  <p style="float:right;"><i class="fa fa-arrows" aria-hidden="true"></i> Drag and Drop to reorder</p>
         </div>
 
         <div class="panel-body">
             <div class="dataTable_wrapper">
-                <table width="100%" class="table table-striped  table-responsive table-bordered table-hover">
+                <table width="100%"  class="table table-striped  table-responsive table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>Categories</th>
-                            <th>Children categories</th>
-                            <th>Actions</th>
+                            {{-- <th>Children categories</th> --}}
+                            {{-- <th>Actions</th> --}}
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="category-sort">
                     @foreach($categories as $category)
                     <tr>
-                        <td>{{$category->name}}</td>
-                        <td>
+                        <td id={{ $category->id }}>{{$category->name}}</td>
+                        {{-- <td>
                           @foreach($category->children as $child)
                             {{ $child->name }}
                           @endforeach
-                        </td>
-                        <td>
+                        </td> --}}
+                       {{--  <td>
                             <a href="{{ url('category/edit/'. $category->id) }}" class="btn btn-warning"><span class="fa fa-edit"></span>Edit
                             </a>
 
                             <a class="btn btn-danger delete-button" data-toggle="modal" data-target="#myModal" data-action="{{ url('category/delete/'. $category->id) }}"><span class="fa fa-trash-o"></span>Delete</a>
-                        </td>
+                        </td> --}}
                           
                     </tr>
                     @endforeach

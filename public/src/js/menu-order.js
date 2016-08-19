@@ -18,3 +18,15 @@ $('.down-button').click(function(){
 
     
   });  
+
+
+
+
+
+
+/*if up-button is pressed
+	value = categoryOrder + 1
+
+
+if down-button is pressed
+	value = categoryOrder - 1*/

@@ -49,6 +49,7 @@ Route::post('category/store','CategoryController@categoryStore');
 Route::get('category/delete/{id}','CategoryController@categoryDelete');
 Route::get('category/edit/{id}','CategoryController@viewEditCategory');
 Route::put('category/update/{id}','CategoryController@categoryUpdate');
+Route::post('categories','CategoryController@sortCategories');
 
 
 /*
