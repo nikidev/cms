@@ -30,43 +30,26 @@
                 <div class="col-sm-6">
                     <select name="parent" class="form-control">
                         @if($mainCategory->parent_id == 0)
-                                <option value="0">-- no parent</option>
-                        @else
-                            @foreach($parentCategories as $parentCategory)
-                                @if($parentCategory->id == $mainCategory->parent_id)
-                                    <option selected="true" value="{{ $parentCategory->parent_id }}">{{ $parentCategory->name }}</option>
-                                @else
-                                    <option  value="{{ $parentCategory->id }}">{{ $parentCategory->name }}</option>
-                                @endif
-                            @endforeach
+                                <option  selected="true" value="0">-- no parent</option>
+                       @endif
+
+                        @if($mainCategory->parent_id > 0)
+                                <option  value="0">-- no parent</option>
                         @endif
-                    </select>
-                </div>
-            </div>
 
-            <div class="form-group">
-                <label for="category" class="col-sm-3 control-label">Order: </label>
-
-                <div class="col-sm-6">
-                    <select  name="order" id="orderSelect" size="9" class="form-control">
-                        @foreach($allCategories as $categoriesList)
-                            @if($categoriesList->id == $mainCategory->id)
-                                <option selected="true" value="{{ $categoriesList->id }}">{{ $categoriesList->name  }}</option>
+                        @foreach($parentCategories as $parentCategory)
+                            @if($parentCategory->id == $mainCategory->parent_id)
+                                <option selected="true" value="{{ $parentCategory->parent_id }}">{{ $parentCategory->name }}</option>
                             @else
-                                <option value="{{ $categoriesList->id }}">{{ $categoriesList->name  }}</option>
+                                <option  value="{{ $parentCategory->id }}">{{ $parentCategory->name }}</option>
                             @endif
                         @endforeach
+                        
                     </select>
                 </div>
-
-                <button type="button" class="btn btn-default up-button">
-                        <i class="fa fa-chevron-up"></i>
-                </button>
-
-                <button type="button" class="btn btn-default down-button">
-                        <i class="fa fa-chevron-down"></i>
-                </button>
             </div>
+
+            
 
 
 

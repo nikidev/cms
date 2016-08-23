@@ -42,15 +42,12 @@
                                         <a href="{{ url('article/'. $article->slug) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{$article->title}}</a>
                                     </li>
                               @endforeach
-                              <li>
-                                <a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{$category->parent_id}}<span class="fa arrow"></span></a>
-                              </li>
                         </ul>
                     </li>
                 @endforeach --}}
 
 
-                {{-- @each('layouts.partials.nestedNavigation', $categories, 'category') --}}
+                
               
                         
                     @foreach ($categoriesNav as $category)

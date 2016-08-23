@@ -23,9 +23,7 @@ class CategoryController extends Controller
     
     public function viewCategoriesList()
     {
-        // $categories = Category::orderBy('order','ASC')->get();
-
-        $categories = DB::table('categories')->orderBy('ordercat','ASC')->get();
+        $categories = Category::orderBy('ordercat','ASC')->get();
 
         return view('admin.categories.index')->with('categories',$categories);
     }
@@ -68,12 +66,12 @@ class CategoryController extends Controller
     {
 
         $mainCategory = Category::find($id);
-        $allCategories = Category::all();
+        
         
         return view('admin.categories.edit')
         ->with('mainCategory',$mainCategory)
-        ->with('parentCategories', Category::where('id','!=', $mainCategory->id)->get()) //select all categories without the category for edit
-        ->with('allCategories', $allCategories);
+        ->with('parentCategories', Category::where('id','!=', $mainCategory->id)->get()); //select all categories without the category for edit
+        
         
     }
 
@@ -86,7 +84,7 @@ class CategoryController extends Controller
          $category = Category::where('id',$id)->update([
                 'name'=> Input::get('name'),
                 'parent_id'=> Input::get('parent'),
-                'order'=>Input::get('order'),
+                
             ]);
         
          return redirect('/categories');
@@ -95,42 +93,20 @@ class CategoryController extends Controller
 
 
 
-        // public function sortCategories() 
-        // {
+    public function sortCategories() 
+    {
+        $category = Category::orderBy('ordercat','ASC')->get();
 
-              
-        //       $updateRecordsArray = Input::get('order');
-        //         $order = 1;
-         
-                
-        //         foreach ($updateRecordsArray as $recordID) 
-        //         {
-         
-        //             return Category::where('id', '=', $recordID)->update(array('order' => $order));
-        //             $order++;
-        //         }
-     
-        //         return Response::json('ok');  
-        // }
+        $itemID=Input::get('itemID'); //ID of category
+        $itemIndex=Input::get('itemIndex'); //order of category
 
-
-
-        public function sortCategories() 
+        foreach ($category as $item) 
         {
-            // $category = Category::orderBy('order','ASC')->get();
-
-            $category = DB::table('categories')->orderBy('ordercat','ASC')->get();
-
-            $itemID=Input::get('itemID');
-            $itemIndex=Input::get('itemIndex');
-
-            foreach ($category as $item) 
-            {
-                // return Category::where('id','=',$itemID)->update(array('order' => $itemIndex));
-                return DB::table('categories')->where('id', '=', $itemID)->update(array('ordercat'=> $itemIndex));
-            }
-              
+            return Category::where('id','=',$itemID)->update(array('ordercat' => $itemIndex));
+            
         }
+          
+    }
 
 
 

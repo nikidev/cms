@@ -18,7 +18,6 @@
 <script type="text/javascript" src="{{ asset('src/js/switcher.js') }}"></script>
 
 <script type="text/javascript" src="{{ asset('src/js/popup.js') }}"></script>
-<script type="text/javascript" src="{{ asset('src/js/menu-order.js') }}"></script>
 
 <script type="text/javascript" src="{{ asset('src/js/draggable-order.js') }}"></script>
 

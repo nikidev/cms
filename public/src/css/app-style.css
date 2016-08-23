@@ -46,3 +46,22 @@
 	display: block;
 	margin:7px;
 }
+
+
+
+#category-sort{
+	list-style-type: none;
+	    padding: 0;
+}
+
+
+#category-sort li {
+	border: 1px solid #c5c5c5;
+    background: #f6f6f6;
+    font-weight: normal;
+    color: #454545;
+    margin-top: 9px;
+    padding: 0.5em;
+    cursor:move;
+
+}
